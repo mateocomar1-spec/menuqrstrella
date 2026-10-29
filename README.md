@@ -34,7 +34,7 @@ El catálogo se consulta al cargar la página y de nuevo antes de preparar un pe
 
 **Dato pendiente:** `p41`, Pizza Mitad y Mitad, venía sin precio y con categoría inexistente. Se conservó en Pizzas, no disponible y con precio pendiente. El dueño debe definir su modalidad e importe antes de habilitarla. No se dedujo una regla de precios.
 
-El costo de envío inicial ($6.500) se tomó del HTML original y queda editable. El estado abierto/cerrado es manual. No se incluyó el aviso antiguo de nieve. No se copió el enlace temporal del logo de Instagram: se usa una marca tipográfica e ilustración decorativa de pizza, sin presentarla como fotografía del producto. Se requieren fotos reales para completar la identidad del local.
+El costo de envío inicial ($6.500) se tomó del HTML original y queda editable. El estado abierto/cerrado es manual. No se incluyó el aviso antiguo de nieve. No se copió el enlace temporal del logo de Instagram: se usa una marca tipográfica y espacios identificados como “Sin foto”, sin inventar fotografías del producto. Se requieren fotos reales para completar la identidad del local.
 
 ## Validación
 
@@ -47,3 +47,22 @@ El archivo `netlify.toml` configura Node 24, comando `npm run build:production` 
 Crear primero un sitio de prueba separado o un Deploy Preview. No cambiar el dominio actual hasta validar login y guardado del dueño. Netlify puede publicar automáticamente la rama de producción: confirmar la rama configurada antes de vincularla o enviar cambios a ella. El sitio de prueba usa la base real y cualquier edición autorizada se guarda en ella; realizar la comprobación con un cambio reversible y restaurarlo.
 
 Verificación remota realizada: catálogo de 83 productos/6 categorías accesible, función de administrador devuelve `false` sin sesión, lista de administradores rechaza acceso anónimo, y una actualización anónima al mismo valor actual no afecta filas. La autorización efectiva del dueño, su login y el guardado autenticado siguen pendientes. En Authentication de Supabase deshabilitar el registro público si todavía está habilitado: la aplicación no necesita altas abiertas. Los usuarios nuevos nunca se autorizan automáticamente como administradores.
+
+
+## Rediseño aprobado: menú y panel
+
+Interfaz en rojo, blanco cálido y gris oscuro. El menú abre en Pizzas, muestra ambos tamaños juntos, permite elegir el tamaño desde la tarjeta y conserva los datos del cliente al ajustar cantidades. No se cargan tipografías externas. Las categorías respetan el orden configurado por el dueño.
+
+El panel separa Productos, Categorías y Local y delivery. Incluye búsqueda, filtros por categoría/disponibilidad, edición directa de precios, campos modificados resaltados, contador de cambios, descarte con confirmación y editor de producto lateral. En celular la tabla se transforma en fichas. Los cambios solo se publican desde el botón general de guardado; el editor de producto aplica al borrador. La versión del borrador se conserva para detectar conflictos incluso después de consultar el menú de nuevo.
+
+### Prueba de interfaz reproducible
+
+Con Chromium instalado (en este entorno `/usr/bin/chromium`), iniciar un servidor **exclusivamente de demostración** en una terminal:
+
+```sh
+VITE_SUPABASE_URL='' VITE_SUPABASE_ANON_KEY='' npm run dev -- --port 5174 --strictPort
+```
+
+Desde otra terminal, ejecutar `npm run test:ui`. Opcionalmente configurar `CHROMIUM_PATH` para indicar otro Chromium y `UI_TEST_URL` para otro servidor de demostración. La prueba verifica el modo demo antes de editar, no toca Supabase y deja capturas en `/tmp/piccolina-ui-verification/`. Cubre 320/390/1440 px, carrito y tamaños, docenas, búsqueda, filtros, edición, guardado, descarte y navegación del panel. El acceso real del dueño, la escritura autenticada y la carga de fotos en Supabase requieren su sesión y siguen pendientes de validación.
+
+Para publicar manualmente la prueba, usar el ZIP de la rama `prueba-diseno-v2` y subir su carpeta descomprimida a Deploys del sitio de prueba en Netlify. Esto no requiere ejecutar una compilación local. La compilación incorpora solo la URL y clave pública del proyecto. El archivo `_headers` incorpora las cabeceras también en despliegues manuales. No cambiar todavía el dominio de producción.
