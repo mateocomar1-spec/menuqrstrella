@@ -1,0 +1,23 @@
+PREENTREGA DE LA PAGINA MENU QR DE STRELLA ESTUDIO
+
+Esta es una propuesta independiente para revisar contenido y diseño.
+No reemplaza ni modifica la web actual de STRELLA ni el menú del cliente.
+Abrir index.html en el navegador, manteniendo assets y style.css junto al archivo.
+
+Incluye:
+- Presentación del servicio y del panel.
+- Configuración inicial de $80.000 ARS, abono de $30.000 ARS/mes.
+- Hasta 50 productos en carga inicial, material proporcionado por el cliente.
+- Hosting, imágenes, dirección web con subdominio y mantenimiento técnico.
+- 14 preguntas frecuentes y datos estructurados Service/FAQPage coherentes.
+- Capturas anónimas con marca de ejemplo TU LOCAL.
+- Vistas responsive validadas a 320, 390, 768 y 1440px.
+
+El CTA de contacto abre un diálogo de demostración; no envía consultas.
+Debe conectarse al canal confirmado de STRELLA antes de publicar.
+La propuesta lleva noindex,nofollow para no competir con la web real.
+Al publicar una versión aprobada, revisar indexación y canonical de la URL real.
+La presencia de datos estructurados no garantiza resultados destacados ni citas en IA.
+No se incluyeron condiciones de impuestos, pago, cancelación o soporte que no se hayan acordado.
+El diseño de la web actual no pudo consultarse automáticamente en esta sesión.
+No se promete que este archivo replique su diseño ni su estructura completa.
