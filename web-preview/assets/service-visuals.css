@@ -1,0 +1,14 @@
+/* Visuales exclusivos de los servicios de la portada. */
+.service-rows .service-row{grid-template-columns:210px minmax(0,1fr) 45px;gap:12px 35px;align-items:center}
+.service-rows .service-visual{grid-column:1;grid-row:1 / span 2;border-radius:18px;overflow:hidden;background:#152139}
+.service-visual img,.menu-visual img{display:block;width:100%;height:auto;transition:transform .4s ease}
+.service-rows .service-row>.eyebrow{grid-column:2;grid-row:1;margin:0;align-self:end}
+.service-rows .service-row>div:not(.service-visual){grid-column:2;grid-row:2;align-self:start}
+.service-rows .service-row>.row-arrow{grid-column:3;grid-row:1 / span 2}
+.service-row:hover .service-visual img,.service-row:focus-visible .service-visual img{transform:scale(1.045) rotate(-1deg)}
+.service-rows .service-row:focus-visible{outline:2px solid #ff7300;outline-offset:8px;border-radius:6px}
+.product-strip-visual{display:grid;grid-template-columns:160px minmax(0,1fr) auto;gap:30px}
+.menu-visual{overflow:hidden;border-radius:14px}
+@media(min-width:1100px){.service-rows .service-row{grid-template-columns:250px minmax(0,1fr) 45px;gap:12px 45px}}
+@media(max-width:760px){.service-rows .service-row{grid-template-columns:minmax(0,1fr) 35px;gap:12px;padding-block:28px}.service-rows .service-visual{grid-column:1 / -1;grid-row:1;width:100%;max-width:360px;margin-bottom:8px}.service-rows .service-row>.eyebrow{grid-column:1 / -1;grid-row:2;align-self:auto}.service-rows .service-row>div:not(.service-visual){grid-column:1;grid-row:3}.service-rows .service-row>.row-arrow{grid-column:2;grid-row:3;align-self:start}.product-strip-visual{grid-template-columns:minmax(0,1fr);gap:22px}.product-strip-visual .menu-visual{width:100%;max-width:270px}.product-strip-visual .button{margin:0;justify-self:start;white-space:normal}}
+@media(prefers-reduced-motion:reduce){.service-visual img,.menu-visual img{transition:none}.service-row:hover .service-visual img,.service-row:focus-visible .service-visual img{transform:none}}
